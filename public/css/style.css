@@ -87,7 +87,7 @@ form button {
 }
 
 .weather-container {
-    min-height: 250px;
+    min-height: 400px;
     min-width: 500px;
     text-align: center;
 }

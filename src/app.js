@@ -3,6 +3,7 @@ const express = require('express')
 const hbs = require('hbs')
 const mapBox = require('./utils/geocode')
 const forecast = require('./utils/forecast')
+const chalk = require('chalk')
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -26,7 +27,7 @@ app.get('', (req, res) => {
         subtitle: 'Enter location name to view weather',
         developer: 'Aalok Kesarkar'
     })
-    console.log(indexCounter + ' Client loaded home page')
+    console.log('#' + indexCounter + ' Client loaded home page')
     indexCounter += 1
 })
 app.get('/about', (req, res) => {
@@ -56,22 +57,26 @@ app.get('/weather', (req, res) => {
             res.send({ error: error })
         } else {
             // getting FORECAST data from forecast server====================================================
-            forecast.weather(longitude, latitude, (error, { temperature, precipitation_chance, feels_like } = {}) => {
-                    if (error) {
-                        return res.send({ error: error })
-                    }
-                    // No error found so passing data to weather.hbs file =======================================
-                    res.send({
-                        placeName: placeName,
-                        temp: temperature,
-                        precip: precipitation_chance,
-                        feel: feels_like
-                    })
-                    console.log(indexCounter + ' Requested-->' + location)
-                    console.log('  Showed-->' + placeName)
-                    indexCounter += 1
+            forecast.weather(longitude, latitude, (error, { temperature, precipitation_chance, feels_like, localTime, humidity, uv , overall_weather} = {}) => {
+                if (error) {
+                    return res.send({ error: error })
+                }
+                // No error found so passing data to weather.hbs file =======================================
+                res.send({
+                    placeName: placeName,
+                    overall_weather: overall_weather,
+                    temp: temperature,
+                    localTime: localTime,
+                    precip: precipitation_chance,
+                    feel: feels_like,
+                    humidity: humidity,
+                    uv_index: uv
                 })
-                // FORECAST data process ended===================================================================
+                console.log('#' + indexCounter + ' Requested-->' + location)
+                console.log('   Displayed-->' + placeName)
+                indexCounter += 1
+            })
+            // FORECAST data process ended===================================================================
         }
     })
 })
@@ -81,5 +86,5 @@ app.get('*', (req, res) => {
     })
 })
 app.listen(port, () => {
-    console.log('Server is started on port ___'+port+'___')
+    console.log(chalk.green.inverse('SERVER IS SUCCESSFULLY STARTED ON PORT ___' + port + '___'))
 })

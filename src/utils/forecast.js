@@ -11,7 +11,11 @@ let forecast = (latitude, longitude, callbackFnc) => {
             callbackFnc(undefined, {
                 temperature: body.current.temperature,
                 precipitation_chance: body.current.precip,
-                feels_like: body.current.feelslike
+                feels_like: body.current.feelslike,
+                localTime: body.location.localtime,
+                humidity: body.current.humidity,
+                uv: body.current.uv_index,
+                overall_weather: body.current.weather_descriptions
             })
         }
     })
