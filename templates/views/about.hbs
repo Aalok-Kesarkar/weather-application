@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>About</title>
+</head>
+
+<body>
+    <div class="main-content">
+        {{>header}}
+        <h2 id="page-title">About Me</h2>
+        <div class="container">
+            <p>Hi! I'm {{dev}}, a student pursuing {{profession}} in Computer Engineering.<br>
+                This is my first project deployed on the internet.
+                Currently I'm exploring world of Web-Developement with NodeJS and have keen interest in Cyber Security field. 
+                <br>Any suggestions or feedback on this mini-project will be greatly appreciated on following email address.</p>
+            <p>Email address: {{email}}</p>
+        </div>
+        <p style="color: gray;">This is simple weather app which is developed using MapBox API to resolve location name
+            into corresponding
+            latitude and longitude and WeatherStack API to get weather data.
+        </p>
+    </div>
+    {{>footer}}
+</body>
+
+</html>
