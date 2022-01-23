@@ -3,7 +3,7 @@ const express = require('express')
 const hbs = require('hbs')
 const mapBox = require('./utils/geocode')
 const forecast = require('./utils/forecast')
-const chalk = require('chalk')
+// const chalk = require('chalk')
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -86,5 +86,5 @@ app.get('*', (req, res) => {
     })
 })
 app.listen(port, () => {
-    console.log(chalk.green.inverse('SERVER IS SUCCESSFULLY STARTED ON PORT ___' + port + '___'))
+    console.log('SERVER IS SUCCESSFULLY STARTED ON PORT ___' + port + '___')
 })

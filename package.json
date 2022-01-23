@@ -9,7 +9,6 @@
   "author": "Aalok Kesarkar",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^5.0.0",
     "express": "^4.16.4",
     "hbs": "^4.2.0",
     "request": "^2.88.0"
