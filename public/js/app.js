@@ -12,7 +12,7 @@ weatherData.addEventListener('submit', (event) => {
     messageTwo.innerHTML = ''
     messageThree.innerHTML = ''
     messageFour.innerHTML = ''
-    fetch('http://localhost:3000/weather?loc=' + location).then((response) => {
+    fetch('/weather?loc=' + location).then((response) => {
         response.json().then((dataReceived) => {
             if (dataReceived.error) {
                 messageOne.innerHTML = 'Error! ' + dataReceived.error
