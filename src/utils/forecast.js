@@ -8,6 +8,7 @@ let forecast = (latitude, longitude, callbackFnc) => {
         } else if (body.error) {
             callbackFnc('Unable to fetch weather data, Please report at aalok.public@gmail.com Error code: WS-Er-9', undefined)
         } else {
+            console.log('Forecast: '+body.current.weather_icons[0])
             callbackFnc(undefined, {
                 temperature: body.current.temperature,
                 precipitation_chance: body.current.precip,
@@ -15,7 +16,8 @@ let forecast = (latitude, longitude, callbackFnc) => {
                 localTime: body.location.localtime,
                 humidity: body.current.humidity,
                 uv: body.current.uv_index,
-                overall_weather: body.current.weather_descriptions
+                overall_weather: body.current.weather_descriptions[0],
+                icon: body.current.weather_icons[0]
             })
         }
     })

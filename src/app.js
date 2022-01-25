@@ -57,7 +57,7 @@ app.get('/weather', (req, res) => {
             res.send({ error: error })
         } else {
             // getting FORECAST data from forecast server====================================================
-            forecast.weather(longitude, latitude, (error, { temperature, precipitation_chance, feels_like, localTime, humidity, uv , overall_weather} = {}) => {
+            forecast.weather(longitude, latitude, (error, { temperature, icon, precipitation_chance, feels_like, localTime, humidity, uv , overall_weather} = {}) => {
                 if (error) {
                     return res.send({ error: error })
                 }
@@ -70,8 +70,10 @@ app.get('/weather', (req, res) => {
                     precip: precipitation_chance,
                     feel: feels_like,
                     humidity: humidity,
-                    uv_index: uv
+                    uv_index: uv,
+                    icon: icon
                 })
+                console.log('Server side: '+icon)
                 console.log('#' + indexCounter + ' Requested-->' + location)
                 console.log('   Displayed-->' + placeName)
                 indexCounter += 1

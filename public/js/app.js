@@ -8,6 +8,7 @@ const messageFive = document.querySelector('#message-5')
 const messageSix = document.querySelector('#message-6')
 const messageSeven = document.querySelector('#message-7')
 const messageEight = document.querySelector('#message-8')
+const weather_icon = document.querySelector('#weather_icon')
 
 weatherData.addEventListener('submit', (event) => {
     event.preventDefault()
@@ -19,6 +20,7 @@ weatherData.addEventListener('submit', (event) => {
             if (dataReceived.error) {
                 messageOne.innerHTML = 'Error! ' + dataReceived.error
             } else {
+                weather_icon.insertAdjacentHTML("afterbegin", `<img src=${dataReceived.icon} alt="weather-status-icon">`)
                 messageOne.innerHTML = dataReceived.placeName
                 messageTwo.innerHTML = 'Today is a ' + dataReceived.overall_weather + ' day!'
                 messageThree.innerHTML = 'Temperature: ' + dataReceived.temp + ' degree celcius'
