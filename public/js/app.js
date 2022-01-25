@@ -14,7 +14,7 @@ weatherData.addEventListener('submit', (event) => {
     event.preventDefault()
     const location = searchInput.value
     messageOne.innerHTML = 'Loading...'
-    messageTwo.innerHTML = messageThree.innerHTML = messageFour.innerHTML = messageFive.innerHTML = messageSix.innerHTML = messageSeven.innerHTML = messageEight.innerHTML = ''
+    weather_icon.innerHTML = messageTwo.innerHTML = messageThree.innerHTML = messageFour.innerHTML = messageFive.innerHTML = messageSix.innerHTML = messageSeven.innerHTML = messageEight.innerHTML = ''
     fetch('/weather?loc=' + location).then((response) => {
         response.json().then((dataReceived) => {
             if (dataReceived.error) {
