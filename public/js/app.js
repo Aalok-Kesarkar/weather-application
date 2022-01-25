@@ -26,7 +26,7 @@ weatherData.addEventListener('submit', (event) => {
                 messageThree.innerHTML = 'Temperature: ' + dataReceived.temp + ' degree celcius'
                 messageFour.innerHTML= 'Feels like: ' + dataReceived.feel + ' degree celcius'
                 messageFive.innerHTML = 'Current Time: ' + dataReceived.localTime
-                messageSix.innerHTML = 'Precipitation chance: ' + dataReceived.precip + '%'
+                messageSix.innerHTML = 'Rain chance: ' + dataReceived.precip + '%'
                 messageSeven.innerHTML = 'Humidity scale: ' + dataReceived.humidity
                 messageEight.innerHTML = 'UV Index: ' + dataReceived.uv_index
             }
