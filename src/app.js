@@ -43,9 +43,7 @@ app.get('/contact', (req, res) => {
     })
 })
 app.get('/about/*', (req, res) => {
-    res.render('404_not_found', {
-        errorMsg: 'Blog article not found'
-    })
+    res.render('404_not_found')
 })
 app.get('/weather', (req, res) => {
     if (!req.query.loc) { // If no location given then generate error======
@@ -83,9 +81,7 @@ app.get('/weather', (req, res) => {
     })
 })
 app.get('*', (req, res) => {
-    res.render('404_not_found', {
-        errorMsg: 'Page not found'
-    })
+    res.render('404_not_found')
 })
 app.listen(port, () => {
     console.log('SERVER IS SUCCESSFULLY STARTED ON PORT ___' + port + '___')

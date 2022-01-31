@@ -7,13 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/img/favicon.png">
     <link rel="stylesheet" href="/css/style.css">
-    <title>Error 404</title>
+    <title>Page Not Found!</title>
 </head>
 
 <body>
     <div class="main-content">
         {{>header}}
-        <h1>Error 404: {{errorMsg}}</h1>
+        {{!-- <h1>Error 404: {{errorMsg}}</h1> --}}
+        <img src="/img/404" alt="404 error" style="display: block; padding-top: 50px; margin-left: auto; margin-right: auto; width: 60%;">
     </div>
     {{>footer}}
 </body>
