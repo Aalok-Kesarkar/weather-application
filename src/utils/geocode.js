@@ -1,6 +1,6 @@
 const request = require('request')
 const geocode = (location, callbackFnc) => {
-    const url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + encodeURIComponent(location) + '.json?access_token=pk.eyJ1IjoiZ3VhcmRpYW4tMTIzIiwiYSI6ImNreWQzejluZjAwcnAydXFwNHk4dGJvbWIifQ.wkVM_i9-mZ6eHiNvE8YFZg&limit=1'
+    const url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + encodeURIComponent(location) + '.json?access_token=' + process.env.MAPBOX_API_KEY + '&limit=1'
     request({ url, json: true }, (error, { body } = {}) => {
         if (error) {
             callbackFnc('Unable to fetch weather data, Please report at aalok.public@gmail.com Error code: MB-Er-6', undefined)
