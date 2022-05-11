@@ -55,7 +55,7 @@ app.get('/weather', (req, res) => {
             res.send({ error: error })
         } else {
             // getting FORECAST data from forecast server====================================================
-            forecast.weather(longitude, latitude, (error, { temperature, icon, precipitation_chance, feels_like, localTime, humidity, uv , overall_weather} = {}) => {
+            forecast.weather(longitude, latitude, (error, { temperature, icon, precipitation_chance, feels_like, localTime, humidity, uv, overall_weather } = {}) => {
                 if (error) {
                     return res.send({ error: error })
                 }
@@ -71,7 +71,6 @@ app.get('/weather', (req, res) => {
                     uv_index: uv,
                     icon: icon
                 })
-                console.log('Server side: '+icon)
                 console.log('#' + indexCounter + ' Requested-->' + location)
                 console.log('   Displayed-->' + placeName)
                 indexCounter += 1
@@ -84,5 +83,5 @@ app.get('*', (req, res) => {
     res.render('404_not_found')
 })
 app.listen(port, () => {
-    console.log('SERVER IS SUCCESSFULLY STARTED ON PORT ___' + port + '___')
+    console.log('WEATHER SERVER IS STARTED ON PORT ___' + port + '___')
 })
